@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PortaOne Test</title>
+    <title>Education Center Portaone</title>
   </head>
 
   <body>
-    <h1>PortaOne Test</h1>
+    <h1>Education Center Portaone Test</h1>
     <input type="file" id="test" />
     <script>
       document.getElementById("test").addEventListener("change", function (e) {
@@ -37,6 +37,18 @@
             console.log("min", min);
 
             //  3. медіанa
+            function median(numbers) {
+              numbers.sort(function (a, b) {
+                return a - b;
+              });
+              var middle = Math.floor(numbers.length / 2);
+
+              if (numbers.length % 2 === 0) {
+                return (numbers[middle - 1] + numbers[middle]) / 2;
+              } else {
+                return numbers[middle];
+              }
+            }
 
             //  4. середнє арифметичне значення
             let sum = 0;
