@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PortaOne Test</title>
+  </head>
+
+  <body>
+    <h1>PortaOne Test</h1>
+    <input type="file" id="test" />
+    <script>
+      document.getElementById("test").addEventListener("change", function (e) {
+        let file = this.files[0];
+        fileReader = new FileReader();
+        if (file) {
+          fileReader.addEventListener("loadend", function (e) {
+            let match = e.target.result.match(/-?[0-9]*\d+(\d+)?/g);
+            result = [];
+            match.forEach((e) => {
+              result.push(+e);
+            });
+            console.log("array", result);
+
+            //  1. максимальне число в файлі
+            let max = result[0];
+            for (i = 1; i < result.length; i += 1) {
+              if (result[i] > max) max = result[i];
+            }
+            console.log("max", max);
+
+            //  2. мінімальне число в файлі
+            let min = result[0];
+            for (i = 1; i < result.length; i += 1) {
+              if (result[i] < min) min = result[i];
+            }
+            console.log("min", min);
+
+            //  3. медіанa
+
+            //  4. середнє арифметичне значення
+            let sum = 0;
+            for (i = 0; i < result.length; i += 1) {
+              sum += result[i];
+            }
+            const average = sum / result.length;
+            console.log("average", average);
+          });
+          fileReader.readAsText(file);
+        }
+      });
+    </script>
+  </body>
+</html>
