@@ -4,7 +4,7 @@ const list = document.querySelector(".list");
 function digitNumbers(array) {
   list.insertAdjacentHTML(
     "beforeend",
-    `<li class="list-item new">Number of digits in the file : ${array.length}</li>`
+    `<li class="list-item new">Number of elements in the file : ${array.length}</li>`
   );
 }
 
@@ -65,7 +65,7 @@ function medianNumber(array) {
 //  4. Знаходження середнього арифметичного значення:
 // - знаходимо суму елементів масиву sum
 // - знаходимо кількість елементів масиву  array.length
-// - визначаємо середнє арифметичне average поділивши суму всіх чисел на кількість елементів в масиві
+// - визначаємо середнє арифметичне average, поділивши суму всіх чисел на кількість елементів в масиві та округляємо його
 function averageNumber(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i += 1) {
@@ -75,7 +75,9 @@ function averageNumber(array) {
   console.log("average", average);
   list.insertAdjacentHTML(
     "beforeend",
-    `<li class="list-item new">Average: ${average}</li>`
+    `<li class="list-item new">Average (rounded to 2 digits): ${average.toFixed(
+      2
+    )}</li>`
   );
 }
 
@@ -105,7 +107,7 @@ function maxIncreasingSequence(array) {
   console.log("maxIncreasingSequence", maxIncrSequence);
   list.insertAdjacentHTML(
     "beforeend",
-    `<li class="list-item new">Maximum increasing sequence: ${maxIncrSequence}</li>`
+    `<li class="list-item new">Maximum increasing sequence (${maxIncrSequence.length} elements): ${maxIncrSequence}</li>`
   );
 }
 
@@ -139,7 +141,7 @@ function maxDecreasingSequence(array) {
   console.log("maxDecreasingSequence", maxDecrSequence);
   list.insertAdjacentHTML(
     "beforeend",
-    `<li class="list-item new">Maximum decreasing sequence: ${maxDecrSequence}</li>`
+    `<li class="list-item new">Maximum decreasing sequence (${maxDecrSequence.length} elements): ${maxDecrSequence}</li>`
   );
 }
 

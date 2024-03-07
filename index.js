@@ -13,19 +13,19 @@ document.getElementById("test").addEventListener("change", function (e) {
   const fileReader = new FileReader();
   if (file) {
     fileReader.addEventListener("loadend", function (e) {
-      const result = e.target.result
+      const array = e.target.result
         .split("\n")
         .filter((line) => line.trim() !== "")
         .map(Number);
-      console.log("result", result);
+      console.log("array", array);
 
-      digitNumbers(result);
-      maxNumber(result);
-      minNumber(result);
-      medianNumber(result);
-      averageNumber(result);
-      maxIncreasingSequence(result);
-      maxDecreasingSequence(result);
+      digitNumbers(array);
+      maxNumber(array);
+      minNumber(array);
+      medianNumber(array);
+      averageNumber(array);
+      maxIncreasingSequence(array);
+      maxDecreasingSequence(array);
     });
 
     fileReader.readAsText(file);
