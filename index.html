@@ -3,13 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Education Center Portaone</title>
   </head>
 
   <body>
-    <h1>Education Center Portaone Test</h1>
+    <h1 class="title">Education Center PortaOne Test</h1>
+    <p>Choose the file with numbers, please...</p>
     <input type="file" id="test" />
+    <ul class="list"></ul>
+
     <script>
+      const list = document.querySelector(".list");
+
       document.getElementById("test").addEventListener("change", function (e) {
         let file = this.files[0];
         fileReader = new FileReader();
@@ -29,6 +35,10 @@
                 if (array[i] > max) max = array[i];
               }
               console.log("max", max);
+              list.insertAdjacentHTML(
+                "beforeend",
+                `<li class="list-item new">Max number : ${max}</li>`
+              );
             }
             maxNumber(result);
 
@@ -39,6 +49,10 @@
                 if (array[i] < min) min = array[i];
               }
               console.log("min", min);
+              list.insertAdjacentHTML(
+                "beforeend",
+                `<li class="list-item new">Min number: ${min}</li>`
+              );
             }
             minNumber(result);
 
@@ -47,9 +61,15 @@
               array.sort();
               let middle = Math.floor(array.length / 2);
               if (array.length % 2 === 0) {
-                console.log("mediana", (array[middle - 1] + array[middle]) / 2);
+                const mediana = (array[middle - 1] + array[middle]) / 2;
+                console.log("mediana", mediana);
               } else {
-                console.log("mediana", array[middle]);
+                const mediana = array[middle];
+                console.log("mediana", mediana);
+                list.insertAdjacentHTML(
+                  "beforeend",
+                  `<li class="list-item new">Mediana: ${mediana}</li>`
+                );
               }
             }
             medianNumber(result);
@@ -62,6 +82,10 @@
               }
               const average = sum / array.length;
               console.log("average", average);
+              list.insertAdjacentHTML(
+                "beforeend",
+                `<li class="list-item new">Average: ${average}</li>`
+              );
             }
             averageNumber(result);
           });
